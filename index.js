@@ -7,7 +7,7 @@ const fs = require("fs")
 
 
 
-mongoose.connect('mongodb://localhost:27017/test')
+mongoose.connect('mongodb+srv://Pedro:MLPD31415pi@cluster1.y3fif13.mongodb.net/?appName=Cluster1/test')
 const db = mongoose.connection
 db.once('open', () => {
     console.log('connected mongodb')
