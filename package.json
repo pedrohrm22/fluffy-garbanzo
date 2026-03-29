@@ -1,0 +1,21 @@
+{
+  "name": "carpepiso",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon project/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-formidable": "^1.2.0",
+    "fs": "^0.0.1-security",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.1.5",
+    "node-fetch": "^3.3.2"
+  },
+  "description": ""
+}
