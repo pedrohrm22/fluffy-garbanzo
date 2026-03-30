@@ -67,7 +67,7 @@ app.post("/home", function (request, result) {
 
 
 
-app.get('/home', async function(req,res){
+app.get('/', async function(req,res){
     /*const users = await models.find()*/
    
       const files = await bucket.find({
