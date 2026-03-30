@@ -31,7 +31,7 @@ const client = await mongoClient.connect('mongodb+srv://Pedro:MLPD31415pi@cluste
 const db1 = client.db("carpepiso")
 app.locals.db = db1
 app.locals.bucket = new mongodb.GridFSBucket(db1)
- bucket = new mongodb.GridFSBucket(db1)
+
 /*app.post("/home", function (request, result) {
     // get input name="file" from client side
     const file = request.files.file
@@ -159,7 +159,7 @@ app.get("/image/index/:id/posit/:id2", async function (request, result) {
  })
 
     
-      app.get("/image/index/", async function (request, result) {
+     /* app.get("/image/index/", async function (request, result) {
     
 
      try{  
@@ -194,7 +194,7 @@ app.get("/image/index/:id/posit/:id2", async function (request, result) {
 
  })
       
-    
+    */
    /* app.get("/image/:filename", async function (request, result) {
         // get file name from URL
         const filename = request.params.filename
