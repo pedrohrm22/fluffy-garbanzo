@@ -19,17 +19,16 @@ app.use(express.static(path.join(__dirname , "views")))
 const expressFormidable = require('express-formidable')
 app.use(expressFormidable())
 
-const mongodb  = 
-require("mongodb")
+const mongodb  = require("mongodb")
 const mongoClient = mongodb.MongoClient
 
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 http.listen(process.env.PORT || 4000, async function (){
 
-const client = await mongoClient.connect('mongodb+srv://Pedro:MLPD31415pi@cluster1.y3fif13.mongodb.net/?appName=Cluster1/carpepiso')
+const client = await mongoClient.connect('mongodb+srv://Pedro:MLPD31415pi@cluster1.y3fif13.mongodb.net/?appName=Cluster1/')
  
-const db1 = client.db("test")
+const db1 = client.db("carpepiso")
 app.locals.db = db1
 app.locals.bucket = new mongodb.GridFSBucket(db1)
 bucket = new mongodb.GridFSBucket(db1)
