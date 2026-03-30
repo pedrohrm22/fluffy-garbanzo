@@ -7,7 +7,7 @@ const fs = require("fs")
 
 
 
-mongoose.connect(process.env.Mongo + '/carpepiso')
+mongoose.connect('mongodb+srv://Pedro:MLPD31415pi@cluster1.y3fif13.mongodb.net/?appName=Cluster1/carpepiso')
 const db = mongoose.connection
 db.once('open', () => {
     console.log('connected mongodb')
@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 http.listen(process.env.PORT , async function (){
 
-const client = await mongoClient.connect(process.env.Mongo)
+const client = await mongoClient.connect('mongodb+srv://Pedro:MLPD31415pi@cluster1.y3fif13.mongodb.net/?appName=Cluster1/)
  
 const db1 = client.db("carpepiso")
 app.locals.db = db1
