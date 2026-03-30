@@ -128,7 +128,7 @@ app.get("/image/index/:id/posit/:id2", async function (request, result) {
 
      try{  
        // get file from GridFS bucket
-       
+       const bucket = request.app.locals.bucket
        const db = request.app.locals.db
        const files = await db.collection('fs.files').find({
          
