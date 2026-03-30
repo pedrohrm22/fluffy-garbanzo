@@ -67,7 +67,7 @@ app.locals.bucket = new mongodb.GridFSBucket(db1)
 */
 
 
-app.get('/home', async function(req,res){
+app.get('/', async function(req,res){
     /*const users = await models.find()*/
    
    /*   const files = await bucket.find({
