@@ -32,7 +32,7 @@ const db1 = client.db("carpepiso")
 app.locals.db = db1
 app.locals.bucket = new mongodb.GridFSBucket(db1)
 const bucket = new mongodb.GridFSBucket(db1)
-app.post("/home", function (request, result) {
+/*app.post("/home", function (request, result) {
     // get input name="file" from client side
     const file = request.files.file
     
@@ -64,13 +64,13 @@ app.post("/home", function (request, result) {
 
   })
   
-
+*/
 
 
 app.get('/home', async function(req,res){
     /*const users = await models.find()*/
    
-      const files = await bucket.find({
+   /*   const files = await bucket.find({
     
     })
     .sort({
@@ -78,7 +78,7 @@ app.get('/home', async function(req,res){
       })
       .toArray()
    
-
+*/
  
    
   
