@@ -70,25 +70,16 @@ app.post("/home", function (request, result) {
 app.get('/home', async function(req,res){
     /*const users = await models.find()*/
    
-      const files = await bucket.find({
     
-    })
-    .sort({
-        uploadDate: -1
-      })
-      .toArray()
-   
-
  
    
   
-    res.render('index.ejs', {
-        title: 'title',
-        files:files
+    res.render('index.ejs')
+     
         /*users*/
-    })
     
-})
+    
+
 })
   
  
