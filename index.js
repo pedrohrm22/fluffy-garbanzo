@@ -7,7 +7,7 @@ const fs = require("fs")
 
 
 
-mongoose.connect(Mongo + '/carpepiso')
+mongoose.connect(process.env.Mongo + '/carpepiso')
 const db = mongoose.connection
 db.once('open', () => {
     console.log('connected mongodb')
@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 http.listen(process.env.PORT , async function (){
 
-const client = await mongoClient.connect(Mongo)
+const client = await mongoClient.connect(process.env.Mongo)
  
 const db1 = client.db("carpepiso")
 app.locals.db = db1
