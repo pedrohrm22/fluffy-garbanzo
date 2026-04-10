@@ -6,7 +6,6 @@ const http = require('http').createServer(app)
 const fs = require("fs")
 
 
-
 mongoose.connect('mongodb+srv://Pedro:MLPD31415pi@cluster1.y3fif13.mongodb.net/carpepiso')
 const db = mongoose.connection
 db.once('open', () => {
@@ -14,16 +13,15 @@ db.once('open', () => {
 })
 db.on('error', console.error.bind(console, 'error'))
  
-app.use(express.static(path.join(__dirname , "views")))
+app.use(express.static(path.join(__dirname, "views")))
 
-const expressFormidable = require('express-formidable')
-app.use(expressFormidable())
+
 
 const mongodb  = require("mongodb")
 const mongoClient = mongodb.MongoClient
-
-app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
+app.set('views', path.join(__dirname, 'views'))
+
 http.listen(process.env.PORT || 4000, async function (){
 
 const client = await mongoClient.connect('mongodb+srv://Pedro:MLPD31415pi@cluster1.y3fif13.mongodb.net/')
