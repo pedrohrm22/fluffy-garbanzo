@@ -125,6 +125,7 @@ z-index: 2;
 
 
 .allimg{
+    touch-action: none;
 width: 80px;
 height: 80px;
 padding-top: 1.5%;
