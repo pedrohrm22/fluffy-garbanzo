@@ -230,7 +230,7 @@
    
     const image = document.createElement("img")
       image.src="/image/index/"+ P + "/posit/" + ind
-      
+      image.draggable=false
       
        image.classList.add("img1")
        image.classList.add("allimg")
@@ -243,7 +243,7 @@
    
     const image = document.createElement("img")
       image.src="/image/index/"+ P + "/posit/" + ind
-      
+       image.draggable=false
       
        image.classList.add("img2")
        image.classList.add("allimg")
@@ -255,7 +255,7 @@
          const P = para3.id
           const image = document.createElement("img")
       image.src="/image/index/"+ P + "/posit/" + ind
-      
+       image.draggable=false
        
        image.classList.add("img3")
        image.classList.add("allimg")
@@ -268,7 +268,7 @@
    
     const image = document.createElement("img")
       image.src="/image/index/"+ P + "/posit/" + ind
-      
+       image.draggable=false
       
        image.classList.add("img4")
        image.classList.add("allimg")
@@ -278,13 +278,55 @@ const imgs1 = document.querySelectorAll(".img1")
 const allimg = document.querySelectorAll(".img2")
 const img3 = document.querySelectorAll(".img3")
 const img4 = document.querySelectorAll(".img4")
-      
-
+      let px
+      let borda
+      let pro
+      let d1
+      let newitem
+      let press
+      let SizeT
+      let posx
+      let esq2
+       let d2
+    let avanco 
+    let mov 
+    let umov 
+    let Qm
+   let pos1
+     let inicio = true
+  let avancoR
+    let a = true
+    let next
+    let pre
+    let larg
+    let ult
+    let n
+    let ultpos
+       let iconeX1 
+       let e
+       let disp
+          if(window.matchMedia("(max-width: 500px)").matches){
+      disp = "cell"
+    } else{
+      disp = null
+    }
+       iconeX1 = document.createElement("img")
+       iconeX1.src = "pngegg.png"
+       iconeX1.width = 50
+       iconeX1.classList.add("X")  
+    
      imgs1.forEach(img => {
         
  
        img.addEventListener("click", function(img) {
-         if(overlay === false){
+      
+  
+        
+        if(overlay === false){
+   
+          
+       
+      
            document.querySelectorAll(".X").forEach(i => {
           i.remove()
            })
@@ -302,15 +344,83 @@ const img4 = document.querySelectorAll(".img4")
        el.classList.remove("overlay")
 
        )
-     const item = img.target.closest(".img1")
+     item = img.target.closest(".img1")
        if (!item) return;
-
-       imgs1.forEach(el =>
+         imgs1.forEach(el =>
        el.classList.remove("overlay")
 
        )
+       
        item.classList.add("overlay")
-       overlay = true
+       
+ overlay = true
+avanco = false
+
+if(disp==="cell"){
+para.appendChild(iconeX1)
+      const newDiv = document.createElement("div")
+
+            newDiv.style.width = '1cm'
+             newDiv.style.position= "absolute"
+              newDiv.style.visibility = "hidden"
+              document.body.appendChild(newDiv)
+              px = newDiv.offsetWidth
+              document.body.removeChild(newDiv)
+      
+}
+if(disp === "cell"){
+               imgs1.forEach(img => {
+    
+     img.addEventListener("pointerdown", function(img) {
+     if (overlay){
+      a = false
+       n=false
+  d1 = Date.now()
+    
+   newitem = img.target 
+    borda = newitem.getBoundingClientRect()
+     larg = borda.width
+        e= Array.from(para.children).indexOf(newitem)
+            pro = imgs1[(e+1) % imgs1.length]
+             pre = imgs1[(e-1) % imgs1.length]
+             ult = imgs1[imgs1.length - 1]
+             ultpos = imgs1.length - 1
+              if (ult !== newitem){
+        n = true
+              }
+                if(e  === ultpos ){
+          n = false
+          pro = null
+         }
+
+   newitem.style.userSelect = "none"
+
+       const esq = borda.left
+       esq2 = esq
+     newitem.style.left= esq
+   
+   
+  /*  newitem.style.padding="0";*/
+
+
+     press = true
+        
+          SizeT = window.innerWidth
+    posx = img.clientX - borda.left 
+    pos1 = img.clientX
+   
+ 
+   
+      
+        }
+      
+        })
+
+      })    
+
+    }
+     
+    if(disp=== null)  {
        
       text.forEach(txt => {
          txt.style.color = "rgba(0,0,0,0.2)"
@@ -349,8 +459,14 @@ const img4 = document.querySelectorAll(".img4")
         e.style.opacity = "0.2"
         
        })
+       
       
-        let icone;
+         
+        
+          
+       next = img.target
+       
+     let icone;
         let icone2;
         if(!icone) {
        icone = document.createElement("img")
@@ -368,6 +484,7 @@ const img4 = document.querySelectorAll(".img4")
 para.appendChild(icone2)
   para.appendChild(icone)
 para.appendChild(iconeX)
+
        const u = para.children.length - 4
    const i = Array.from(para.children).indexOf(img.target)
         if(i === u ){
@@ -382,7 +499,10 @@ para.appendChild(iconeX)
         })
      }
    let next = img.target
-   iconeX.addEventListener("click", () =>{
+   
+  
+  iconeX.addEventListener("click", () =>{
+  
     overlay = false
     
       next.classList.remove("overlay")
@@ -431,14 +551,15 @@ para.appendChild(iconeX)
           document.querySelectorAll(".esq").forEach(i => {
           i.remove()
         })
-         iconeX.remove() 
+  iconeX.remove() 
+ 
 
    })   
    
    
    icone.addEventListener("click", () => { 
       
-     let e  = Array.from(para.children).indexOf(next)
+      e  = Array.from(para.children).indexOf(next)
         next.classList.remove("overlay")
        para.appendChild(icone)
         para.appendChild(icone2)
@@ -446,7 +567,7 @@ para.appendChild(iconeX)
    
        next.style.opacity = "0.2"
        
-      let pro = imgs1[(e+1) % imgs1.length]
+       pro = imgs1[(e+1) % imgs1.length]
       pro.style.opacity = "1"
      pro.classList.add("overlay")
      if(!(e === imgs1.length - 1)){ 
@@ -467,9 +588,10 @@ para.appendChild(iconeX)
         })
      }
     })
+  
    
      icone2.addEventListener("click", () => { 
-       let e  = Array.from(para.children).indexOf(next)
+       e  = Array.from(para.children).indexOf(next)
         next.classList.remove("overlay")
        para.appendChild(icone)
         para.appendChild(icone2)
@@ -477,7 +599,7 @@ para.appendChild(iconeX)
     next.style.opacity = "0.2"
        
        
-      let pro = imgs1[(e-1) % imgs1.length]
+      pro = imgs1[(e-1) % imgs1.length]
        pro.style.opacity = "1"
      pro.classList.add("overlay")
        next = pro
@@ -488,22 +610,287 @@ para.appendChild(iconeX)
           document.querySelectorAll(".esq").forEach(i => {
           i.remove() 
           })
-        
         }
-      }) 
-       
-          
-       } else {
-
-          icone.remove()
-          icone2.remove()
-        } 
-      } 
       })
-    
+    }
+    }
+    }
     })
+  })
+   
+if(disp === "cell"){
+    iconeX1.addEventListener("click", () =>{
+ 
+    iconeX1.remove()
+ overlay = false
+  a = true
+
+
+    text.forEach(txt => {
+         txt.style.color = "rgba(0,0,0,1)"
+
+       });
+       const element = document.querySelectorAll(".allimg")
+       element.forEach(e => {
+        if(!(e.classList.contains("overlay"))) {
+        e.style.opacity = "1"
+        }
+       })
+         im.forEach(e => {
+        
+       e.style.backgroundColor = "rgba(87, 85, 85,1)"
+        })
+       const img0 = document.querySelectorAll(".img0")
+       img0.forEach(e => {
+        
+        e.style.opacity = "1"
+        
+       })
+       
+       option.style.opacity = "1"
+        title.forEach(e => {
+        
+        e.style.opacity = "1"
+        
+       })
+         title2.forEach(e => {
+        
+        e.style.opacity = "1"
+        
+       })
+         title3.forEach(e => {
+        
+        e.style.opacity = "1"
+        
+       })
+  if (newitem) {
+  newitem.classList.remove("overlay")
+       
+       newitem.removeAttribute("style") 
+
+ 
+  
+  }
+ 
+   })   
+
+
+     
+
+  
+ 
+   
+
+
+   
+let imov 
+ let esp
+ let vel
+ let vel2
+ let nesp
+ let med
+
+ let pos2
+     document.addEventListener("pointermove", function(i) {
+       Qm = (i.clientX - posx) - esq2 
+       
+        a = true
+        
+        if(press===true) {
+       
+       
+            newitem.style.margin="0"
+          newitem.style.left = i.clientX - posx + "px"
+   
+        if(n){
+            pro.style.position= "fixed"
+             pro.style.userSelect = "none" ;
+              pro.classList.add("overlay")
+               pro.style.top= "0" 
+               pro.style.bottom = "0"
+               pro.style.opacity = "1"
+             pro.style.margin= "0" 
+    
+                 pro.style.height= "95%";
+              pro.style.left =  SizeT + (i.clientX - posx) - esq2  + "px"
+        }
+         if(pre){
+           pre.style.position= "fixed"
+             pre.style.userSelect = "none" ;
+              pre.classList.add("overlay")
+               pre.style.top= "0" 
+               pre.style.bottom = "0"
+               pre.style.opacity = "1"
+             pre.style.margin= "0" 
+    
+                 pre.style.height= "95%";
+              pre.style.left =   (i.clientX - posx) - esq2 - larg   + "px"
+         }
+       
+          pos2 =  i.clientX 
+          d2 = Date.now()
+          if (pos1 - pos2 >= 1){
+
+  vel = -(3*px)/1000
+      
+      vel2 = -(pos1-pos2)/(d2-d1)
+  pos1 = pos2
+          
+        d1 = d2   
+      
+   
+         if (vel2 <= vel){
+            
+    
+      
+     
+          
+        avanco = true
+  
+          
+             } else  {
+              avanco = false
+             
+              return
+             } 
+             return
+            
+            }  if(pos2 - pos1 >= 1){
+
+ vel = -(3*px)/1000
+      
+      vel2 = -(pos2-pos1)/(d2-d1)
+  pos1 = pos2
+          
+        d1 = d2   
+      
+   
+         if (vel2 <= vel){
+            
+    
+      
+     
+          
+        avancoR = true
+  
+          
+             } else  {
+              avancoR = false
+              reverse = true
+             
+              return
+             } 
+             return
+            }
   
     
+   
+        
+       
+   
+         
+  
+          }
+        })
+ 
+          
+            
+        
+      }
+        
+     
+      
+ 
+  document.addEventListener("pointerup", function(i) {
+        
+      
+      
+        press=false
+    
+      inicio = true
+      
+   
+      if (avanco === true){
+       if (pre) {
+      pre.classList.remove("overlay")
+       
+       
+       pre.removeAttribute("style")  
+       pre = null
+      
+       }
+   if (n){
+        newitem.classList.remove("overlay")
+       
+       newitem.removeAttribute("style") 
+     
+   
+         newitem = pro
+       
+         newitem.style.left= esq2 + "px"
+        pro = null
+      
+      
+   } else {
+     newitem.style.left= esq2 + "px"
+   }
+        avanco = false
+      } 
+     
+     
+       else if(avancoR) {
+           if(n){ pro.classList.remove("overlay")
+       
+       pro.removeAttribute("style")
+       pro = null
+           }
+if (pre){
+newitem.classList.remove("overlay")
+       
+       newitem.removeAttribute("style") 
+  
+     
+         newitem = pre
+         newitem.style.left= esq2 + "px"
+        pre = null
+     n= true
+   
+} else {
+    newitem.style.left= esq2 + "px"
+}
+     avancoR = false   
+      }
+   
+    
+   
+       else{
+      
+       if(a) {
+     newitem.style.left = esq2 + "px"
+      if (pre){
+      pre.classList.remove("overlay")
+   pre.removeAttribute("style") 
+
+      
+      } 
+       if (n){pro.classList.remove("overlay")
+         pro.removeAttribute("style") 
+    
+       }
+       
+        a = false
+   return
+       }
+      }
+    
+    
+     
+
+   
+  })  
+
+ 
+
     /*  document.querySelectorAll("img").forEach(i => {
        
        
@@ -646,12 +1033,77 @@ const all3 = document.querySelectorAll(".img3")
         
      const item = img.target.closest(".img2")
        if (!item) return;
+item.classList.add("overlay")
+ 
+overlay = true
+       avanco = false
+      if(disp==="cell"){
+       para2.appendChild(iconeX1)
+      const newDiv = document.createElement("div")
 
+            newDiv.style.width = '1cm'
+             newDiv.style.position= "absolute"
+              newDiv.style.visibility = "hidden"
+              document.body.appendChild(newDiv)
+              px = newDiv.offsetWidth
+              document.body.removeChild(newDiv)
+
+
+               imgs2.forEach(img => {
+    
+     img.addEventListener("pointerdown", function(img) {
+        if (overlay){
+      a= false
+       n=false 
+  d1 = Date.now()
+    
+   newitem = img.target 
+    borda = newitem.getBoundingClientRect()
+     
+       larg = borda.width
+        e= Array.from(para2.children).indexOf(newitem)
+            pro = imgs2[(e+1) % imgs2.length]
+             pre = imgs2[(e-1) % imgs2.length]
+             ult = imgs2[imgs2.length - 1]
+             ultpos = imgs2.length - 1
+              if (ult !== newitem){
+        n = true
+              }
+                if(e  === ultpos ){
+          n = false
+          pro = null
+         }
+   newitem.style.userSelect = "none"
+
+       const esq = borda.left
+       esq2 = esq
+     newitem.style.left= esq
+   
+   
+  /*  newitem.style.padding="0";*/
+
+
+     press = true
+        
+          SizeT = window.innerWidth
+    posx = img.clientX - borda.left 
+    pos1 = img.clientX
+   
+ 
+        }
+      
+
+        })
+
+      })   
+    } 
+      if(disp===null){
+     
        imgs2.forEach(el =>
        el.classList.remove("overlay")
 
        )
-       item.classList.add("overlay")
+       
        overlay = true
        text.forEach(txt => {
          txt.style.color = "rgba(0,0,0,0.2)"
@@ -721,7 +1173,7 @@ para2.appendChild(icone2)
           i.remove()
         })
      }
-   let next = img.target
+   next = img.target
     iconeX.addEventListener("click", () =>{
       overlay = false
        text.forEach(txt => {
@@ -835,9 +1287,9 @@ para2.appendChild(icone2)
           icone2.remove()
         }  
       }
+      }
       })
     })
-      
  
    
 const imgs3 = document.querySelectorAll(".img3")
@@ -865,12 +1317,75 @@ const all1 = document.querySelectorAll(".img1")
       )
      const item = img.target.closest(".img3")
        if (!item) return;
+       item.classList.add("overlay")
+overlay = true
+avanco = false
+if(disp==="cell"){
+para3.appendChild(iconeX1)
+      const newDiv = document.createElement("div")
 
+            newDiv.style.width = '1cm'
+             newDiv.style.position= "absolute"
+              newDiv.style.visibility = "hidden"
+              document.body.appendChild(newDiv)
+              px = newDiv.offsetWidth
+              document.body.removeChild(newDiv)
+
+
+                 imgs3.forEach(img => {
+    
+     img.addEventListener("pointerdown", function(img) {
+     if(overlay){
+      a= false
+       n=false 
+  d1 = Date.now()
+    
+   newitem = img.target 
+    borda = newitem.getBoundingClientRect()
+     
+       larg = borda.width
+        e= Array.from(para3.children).indexOf(newitem)
+            pro = imgs3[(e+1) % imgs3.length]
+             pre = imgs3[(e-1) % imgs3.length]
+             ult = imgs3[imgs3.length - 1]
+             ultpos = imgs3.length - 1
+              if (ult !== newitem){
+        n = true
+              }
+                if(e  === ultpos ){
+          n = false
+          pro = null
+         }
+   newitem.style.userSelect = "none"
+
+       const esq = borda.left
+       esq2 = esq
+     newitem.style.left= esq
+   
+   
+  /*  newitem.style.padding="0";*/
+
+
+     press = true
+        
+          SizeT = window.innerWidth
+    posx = img.clientX - borda.left 
+    pos1 = img.clientX
+   
+ 
+    
+        }
+
+        })
+
+      })   
+    } 
+     if(disp===null){
        imgs3.forEach(el =>
        el.classList.remove("overlay")
 
        )
-       item.classList.add("overlay")
+       
        overlay = true
        text.forEach(txt => {
          txt.style.color = "rgba(0,0,0,0.2)"
@@ -1054,9 +1569,10 @@ para3.appendChild(icone2)
           icone.remove()
           icone2.remove()
         } 
+      }
       } 
       })
-    })
+      })
       
  /* "/image/index/"+ P + "/posit/" + ind*/
   img4.forEach(img => {
@@ -1083,12 +1599,76 @@ para3.appendChild(icone2)
        )
      const item = img.target.closest(".img4")
        if (!item) return;
+     item.classList.add("overlay")
+overlay = true
+       avanco = false
+       if(disp==="cell"){
+       para4.appendChild(iconeX1)
+       const newDiv = document.createElement("div")
 
+            newDiv.style.width = '1cm'
+             newDiv.style.position= "absolute"
+              newDiv.style.visibility = "hidden"
+              document.body.appendChild(newDiv)
+              px = newDiv.offsetWidth
+              document.body.removeChild(newDiv)
+
+
+             
+                 img4.forEach(img => {
+    
+     img.addEventListener("pointerdown", function(img) {
+      if(overlay) {
+      a= false
+       n=false 
+  d1 = Date.now()
+    
+   newitem = img.target 
+    borda = newitem.getBoundingClientRect()
+     
+       larg = borda.width
+        e= Array.from(para4.children).indexOf(newitem)
+            pro = img4[(e+1) % img4.length]
+             pre = img4[(e-1) % img4.length]
+             ult = img4[img4.length - 1]
+             ultpos = img4.length - 1
+              if (ult !== newitem){
+        n = true
+              }
+                if(e  === ultpos ){
+          n = false
+          pro = null
+         }
+   newitem.style.userSelect = "none"
+
+       const esq = borda.left
+       esq2 = esq
+     newitem.style.left= esq
+   
+   
+  /*  newitem.style.padding="0";*/
+
+
+     press = true
+        
+          SizeT = window.innerWidth
+    posx = img.clientX - borda.left 
+    pos1 = img.clientX
+   
+        }
+    
+      
+
+        })
+
+      })    
+    }
+     if(disp===null){
        img4.forEach(el =>
        el.classList.remove("overlay")
 
        )
-       item.classList.add("overlay")
+     
        overlay = true
        
       text.forEach(txt => {
@@ -1278,9 +1858,19 @@ para4.appendChild(iconeX)
           icone2.remove()
         } 
       } 
+    }
       })
     
     })
+      
+    
+      
+     
+          
+        
+          
+ 
+  
   
   </script>
 
