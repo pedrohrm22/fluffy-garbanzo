@@ -739,12 +739,7 @@ let countUp
        Qm = (i.clientX - posx) - esq2 
        
         a = true
-        
-        if(press===true) {
-           newitem.style.margin="0"
-
-      
-   
+         
     /* let newX
      let newY
      let newX2
@@ -767,8 +762,17 @@ newitem.style.width=   Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- new
 /*newBorda = newitem.getBoundingClientRect()*/
 
 
-       }else{
-       
+       }else{ 
+        if(press===true) {
+           newitem.style.margin="0"
+
+      
+   
+    /* let newX
+     let newY
+     let newX2
+     let newY2*/
+  
            
           newitem.style.left = i.clientX - posx + "px"
    
