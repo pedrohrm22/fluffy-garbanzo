@@ -394,10 +394,14 @@ if(disp === "cell"){
      cim = borda.top
        larg = borda.width
        alt = borda.height
-      if(count===2){
+         if (!pointer){pointer = img.pointerId}
+         else if(!pointer2){
+         pointer2 = img.pointerId
+         }
+      if(pointer && pointer2){
 pos2x = img.clientX - borda.left
 posy2 = borda.top - img.clientY
-pointer2 = img.pointerId
+
    posxA = posx - posx2
       posyA = posy - posy2
       H = Math.sqrt(posxA*posxA + posyA*posyA)
@@ -441,7 +445,7 @@ pointer2 = img.pointerId
     posx = img.clientX - borda.left 
     posy = borda.top - img.clientY
     pos1 = img.clientX
-    pointer = img.pointerId
+  
    
         }
    
@@ -734,7 +738,7 @@ let countUp
         if(press===true) {
            newitem.style.margin="0"
 
-       if(count===2){
+       if(pointer && pointer2){
    
      let newX
      let newY
