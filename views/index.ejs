@@ -743,17 +743,17 @@ let countUp
         if(press===true) {
            newitem.style.margin="0"
 
-       if(pointer && pointer2){
+      
    
      let newX
      let newY
      let newX2
      let newY2
-     if( i.pointerId === pointer){
+     if( pointer && i.pointerId === pointer){
 newX = i.clientX - lad
 newY = cim - i.clientY
      }
-      if( i.pointerId === pointer2){
+      if(pointer2 && i.pointerId === pointer2){
 newX2 = i.clientX - lad
 newY2 = cim - i.clientY
      }
@@ -761,7 +761,7 @@ newY2 = cim - i.clientY
      let Newya = newY- newY2
 let H2 = Math.sqrt( (newX - newX2* newX - newX2) + (newY- newY2*newY- newY2))
 */
-
+ if(pointer && pointer2){
 newitem.style.height= alt +  Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))- H + "px"
 newitem.style.width= larg +  Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2))) - H+ "px"
 /*newBorda = newitem.getBoundingClientRect()*/
