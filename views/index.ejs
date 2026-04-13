@@ -389,7 +389,7 @@ if(disp === "cell"){
      if (overlay){
     newitem = img.target 
     borda = newitem.getBoundingClientRect()
-    
+       press = true
      
        lad = borda.left
      cim = borda.top
@@ -445,7 +445,7 @@ if(disp === "cell"){
   /*  newitem.style.padding="0";*/
 
 
-     press = true
+  
         
           SizeT = window.innerWidth
     
@@ -762,8 +762,8 @@ newY2 = /*cim - i.clientY*/50
 let H2 = Math.sqrt( (newX - newX2* newX - newX2) + (newY- newY2*newY- newY2))
 */
  if(pointer && pointer2){
-newitem.style.height= alt +  Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))- H + "px"
-newitem.style.width= larg +  Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2))) - H+ "px"
+newitem.style.height=   Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2))) + "px"
+newitem.style.width=   Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))  + "px"
 /*newBorda = newitem.getBoundingClientRect()*/
 
 
