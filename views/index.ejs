@@ -735,22 +735,23 @@ let imov
 let countUp
  let pos2
  let newBorda
+    let newX
+     let newY
+     let newX2
+     let newY2
      document.addEventListener("pointermove", function(i) {
        Qm = (i.clientX - posx) - esq2 
        
         a = true
          
-    /* let newX
-     let newY
-     let newX2
-     let newY2*/
+ 
      if( pointer && i.pointerId === pointer){
-let newX =/* i.clientX - lad*/50
-let newY = /*cim - i.clientY*/50
+newX =/* i.clientX - lad*/50
+ newY = /*cim - i.clientY*/50
      }
       if(pointer2 && i.pointerId === pointer2){
-let newX2 = /* i.clientX - lad*/50 
-let newY2 = /*cim - i.clientY*/50
+newX2 = /* i.clientX - lad*/50 
+newY2 = /*cim - i.clientY*/50
      }
     /* let Newxa = newX - newX2
      let Newya = newY- newY2
