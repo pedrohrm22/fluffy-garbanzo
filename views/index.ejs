@@ -389,7 +389,9 @@ if(disp === "cell"){
      if (overlay){
     newitem = img.target 
     borda = newitem.getBoundingClientRect()
-      count = count + 1
+    
+      posx = img.clientX - borda.left 
+    posy = borda.top - img.clientY
        lad = borda.left
      cim = borda.top
        larg = borda.width
@@ -397,10 +399,12 @@ if(disp === "cell"){
          if (!pointer){pointer = img.pointerId}
          else if(!pointer2){
          pointer2 = img.pointerId
+         pos2x = img.clientX - borda.left
+       posy2 = borda.top - img.clientY
+       
          }
       if(pointer && pointer2){
-pos2x = img.clientX - borda.left
-posy2 = borda.top - img.clientY
+
 
    posxA = posx - posx2
       posyA = posy - posy2
@@ -442,8 +446,7 @@ posy2 = borda.top - img.clientY
      press = true
         
           SizeT = window.innerWidth
-    posx = img.clientX - borda.left 
-    posy = borda.top - img.clientY
+    
     pos1 = img.clientX
   
    
