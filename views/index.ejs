@@ -390,13 +390,15 @@ if(disp === "cell"){
     newitem = img.target 
     borda = newitem.getBoundingClientRect()
     
-      posx = img.clientX - borda.left 
-    posy = borda.top - img.clientY
+     
        lad = borda.left
      cim = borda.top
        larg = borda.width
        alt = borda.height
-         if (!pointer){pointer = img.pointerId}
+         if (!pointer){pointer = img.pointerId
+           posx = img.clientX - borda.left 
+    posy = borda.top - img.clientY
+         }
          else if(!pointer2){
          pointer2 = img.pointerId
          pos2x = img.clientX - borda.left
