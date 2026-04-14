@@ -403,14 +403,15 @@ if(disp === "cell"){
          pointer2 = img.pointerId
          pos2x = img.clientX - borda.left
        posy2 = borda.top - img.clientY
+        posxA = posx - posx2
+      posyA = posy - posy2
+      H = Math.sqrt((posxA*posxA) + (posyA*posyA))
        
          }
       if(pointer && pointer2){
 
 
-   posxA = posx - posx2
-      posyA = posy - posy2
-      H = Math.sqrt((posxA*posxA) + (posyA*posyA))
+  
      exp1 = larg - posx
      exp2 = alt - posy
       } else {
@@ -758,8 +759,8 @@ newY2 = cim - i.clientY
 let H2 = Math.sqrt( (newX - newX2* newX - newX2) + (newY- newY2*newY- newY2))
 */
  if(pointer !== null && pointer2 !== null){
-newitem.style.height=  alt + Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))  + "px"
-newitem.style.width= larg +  Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))  + "px"
+newitem.style.height=  alt + Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2))) - H  + "px"
+newitem.style.width= larg +  Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2))) - H  + "px"
 /*newBorda = newitem.getBoundingClientRect()*/
 
 
