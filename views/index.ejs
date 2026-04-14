@@ -309,8 +309,8 @@ const img4 = document.querySelectorAll(".img4")
        let pos2x
        let posy
        let posy2
-       let pointer
-       let pointer2
+       let pointer = null
+       let pointer2 = null
        let lad
        let cim
        let posxA 
@@ -395,11 +395,11 @@ if(disp === "cell"){
      cim = borda.top
        larg = borda.width
        alt = borda.height
-         if (!pointer){pointer = img.pointerId
+         if (pointer === null){pointer = img.pointerId
            posx = img.clientX - borda.left 
     posy = borda.top - img.clientY
          }
-         else if(!pointer2){
+         else if(pointer2 === null){
          pointer2 = img.pointerId
          pos2x = img.clientX - borda.left
        posy2 = borda.top - img.clientY
@@ -745,11 +745,11 @@ let countUp
         a = true
          
  
-     if( pointer && i.pointerId === pointer){
+     if( pointer !== null && i.pointerId === pointer){
 newX =/* i.clientX - lad*/50
  newY = /*cim - i.clientY*/50
      }
-      if(pointer2 && i.pointerId === pointer2){
+      if(pointer2!== null && i.pointerId === pointer2){
 newX2 = /* i.clientX - lad*/50 
 newY2 = /*cim - i.clientY*/50
      }
@@ -757,7 +757,7 @@ newY2 = /*cim - i.clientY*/50
      let Newya = newY- newY2
 let H2 = Math.sqrt( (newX - newX2* newX - newX2) + (newY- newY2*newY- newY2))
 */
- if(pointer && pointer2){
+ if(pointer !== null && pointer2 !== null){
 newitem.style.height=   Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2))) + "px"
 newitem.style.width=   Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))  + "px"
 /*newBorda = newitem.getBoundingClientRect()*/
