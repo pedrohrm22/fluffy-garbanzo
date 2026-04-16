@@ -399,13 +399,13 @@ if(disp === "cell"){
        
          if (pointer === null){pointer = img.pointerId
            posx = img.clientX - borda.left 
-    posy = borda.top - img.clientY
+    posy =  img.clientY - borda.top
   
          }
          else if(pointer2 === null){
          pointer2 = img.pointerId
          pos2x = img.clientX - borda.left
-       posy2 = borda.top - img.clientY
+       posy2 =img.clientY - borda.top 
         posxA = posx - pos2x
       posyA = posy - posy2
       H = Math.sqrt((posxA*posxA) + (posyA*posyA))
