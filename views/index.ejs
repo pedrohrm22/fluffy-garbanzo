@@ -411,12 +411,12 @@ if(disp === "cell"){
       H = Math.sqrt((posxA*posxA) + (posyA*posyA))
     
        
-        dif = borda.width/(borda.width -  posx - (posxA/2)) ;
-       dif2 = borda.height/(borda.height -  posy - (posyA/2));
+        dif = posx - (posxA/2)/(borda.width - (posx - (posxA/2)));
+       dif2 = posy - (posyA/2)/(borda.height - (posy - (posyA/2)));
         /* (posx - (posxA/2) )/larg
          (posy - (posyA/2))/alt*/
          }
-      
+           
        else {
       a = false
        n=false
