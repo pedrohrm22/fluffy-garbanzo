@@ -392,15 +392,15 @@ if(disp === "cell"){
     newitem = img.target 
     borda = newitem.getBoundingClientRect()
        press = true
-     
+       lad = borda.left
+     cim = borda.top
+       larg = borda.width
+       alt = borda.height
        
          if (pointer === null){pointer = img.pointerId
            posx = img.clientX - borda.left 
     posy = borda.top - img.clientY
-    lad = borda.left
-     cim = borda.top
-       larg = borda.width
-       alt = borda.height
+  
          }
          else if(pointer2 === null){
          pointer2 = img.pointerId
@@ -410,8 +410,8 @@ if(disp === "cell"){
       posyA = posy - posy2
       H = Math.sqrt((posxA*posxA) + (posyA*posyA))
     
-        newitem.style.width= larg
-         newitem.style.height= alt
+        newitem.style.width=  borda.width
+         newitem.style.height= borda.height
          dif =(larg -  posx - (posxA/2) ) / larg
          dif2 =(alt -  posy - (posyA/2))/ alt
         /* (posx - (posxA/2) )/larg
