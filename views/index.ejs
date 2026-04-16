@@ -317,7 +317,8 @@ const img4 = document.querySelectorAll(".img4")
      let posyA 
      let H 
      let alt
-     
+     let dif
+     let dif2
      let exp1
      let exp2
           if(window.matchMedia("(max-width: 500px)").matches){
@@ -410,6 +411,10 @@ if(disp === "cell"){
     
         newitem.style.width= larg
          newitem.style.height= alt
+         dif =(larg -  posx - (posxA/2) ) / larg
+         dif2 =(alt -  posy - (posyA/2))/ alt
+        /* (posx - (posxA/2) )/larg
+         (posy - (posyA/2))/alt*/
          }
       if(pointer && pointer2){
 
@@ -763,9 +768,10 @@ let H2 = Math.sqrt( (newX - newX2* newX - newX2) + (newY- newY2*newY- newY2))
 */
  if(pointer !== null && pointer2 !== null){
 newitem.style.height=  alt + 2*( Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 2*H  + "px"
-newitem.style.width= alt +  2*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 2*H  + "px"
- 
-/*newBorda = newitem.getBoundingClientRect()*/
+newitem.style.width= larg + 2*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 2*H  + "px"
+ newitem.style.left = esq - dif*2*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 2*H + "px"
+newitem.style.top = cim - dif2*2*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 2*H + "px"
+ /*newBorda = newitem.getBoundingClientRect()*/
 
 
        }else{ 
