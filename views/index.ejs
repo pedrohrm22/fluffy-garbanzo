@@ -761,7 +761,7 @@ newY2 = i.clientY - cim
      let Newya = newY- newY2
 let H2 = Math.sqrt( (newX - newX2* newX - newX2) + (newY- newY2*newY- newY2))
 */
- if(pointer !== null && pointer2 !== null){
+ if(pointer !== null && pointer2 !== null && Math.abs(pos1 - i.clientX) < 10){
 newitem.style.height=  alt + 2*( Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 2*H  + "px"
 newitem.style.width= larg + 2*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 2*H  + "px"
    newitem.style.margin="0" 
