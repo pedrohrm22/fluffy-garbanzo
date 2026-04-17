@@ -319,8 +319,7 @@ const img4 = document.querySelectorAll(".img4")
      let alt
      let dif
      let dif2
-     let exp1
-     let exp2
+    let gap
           if(window.matchMedia("(max-width: 500px)").matches){
       disp = "cell"
     } else{
@@ -453,7 +452,7 @@ if(disp === "cell"){
           SizeT = window.innerWidth
     
     pos1 = img.clientX
-  
+   gap = img.clientX
    
          
    
@@ -772,7 +771,7 @@ newitem.style.top = cim - dif2*2*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + 
  /*newBorda = newitem.getBoundingClientRect()*/
 
 
-       } else  if(Math.abs(pos1 - i.clientX) > 10 && zoom === false){ 
+       } else  if(Math.abs(gap - i.clientX) > 10 && zoom === false){ 
         if(press===true) {
            newitem.style.margin="0"
 
