@@ -743,6 +743,7 @@ let countUp
      let newY
      let newX2
      let newY2
+     let zoom = false
      document.addEventListener("pointermove", function(i) {
        Qm = (i.clientX - posx) - esq2 
        
@@ -761,7 +762,8 @@ newY2 = i.clientY - cim
      let Newya = newY- newY2
 let H2 = Math.sqrt( (newX - newX2* newX - newX2) + (newY- newY2*newY- newY2))
 */
- if(pointer !== null && pointer2 !== null && Math.abs(pos1 - i.clientX) < 10){
+ if(pointer !== null && pointer2 !== null ){
+  zoom = true
 newitem.style.height=  alt + 2*( Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 2*H  + "px"
 newitem.style.width= larg + 2*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 2*H  + "px"
    newitem.style.margin="0" 
@@ -770,7 +772,7 @@ newitem.style.top = cim - dif2*2*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + 
  /*newBorda = newitem.getBoundingClientRect()*/
 
 
-       } else  if(Math.abs(pos1 - i.clientX) > 10){ 
+       } else  if(Math.abs(pos1 - i.clientX) > 10 && zoom === false){ 
         if(press===true) {
            newitem.style.margin="0"
 
