@@ -320,6 +320,7 @@ const img4 = document.querySelectorAll(".img4")
      let dif
      let dif2
     let gap
+    let ratio
           if(window.matchMedia("(max-width: 500px)").matches){
       disp = "cell"
     } else{
@@ -395,6 +396,7 @@ if(disp === "cell"){
      cim = borda.top
        larg = borda.width
        alt = borda.height
+       ratio = alt/larg
        
          if (pointer === null){pointer = img.pointerId
            posx = img.clientX - borda.left 
@@ -763,11 +765,11 @@ let H2 = Math.sqrt( (newX - newX2* newX - newX2) + (newY- newY2*newY- newY2))
 */
  if(pointer !== null && pointer2 !== null ){
   zoom = true
-newitem.style.height=  alt + 4*( Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 4*H  + "px"
+newitem.style.height=  alt + ratio*4*( Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - ratio*4*H  + "px"
 newitem.style.width= larg + 4*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 4*H  + "px"
    newitem.style.margin="0" 
 newitem.style.left = lad - dif*4*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2))))+ dif*4*H + "px"
-newitem.style.top = cim - dif2*4*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) + dif2*4*H + "px"
+newitem.style.top = cim - ratio*dif2*4*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) + ratio*dif2*4*H + "px"
  /*newBorda = newitem.getBoundingClientRect()*/
 
 
