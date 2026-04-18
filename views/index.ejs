@@ -758,13 +758,13 @@ newX = i.clientX - lad
       if(pointer2!== null && i.pointerId === pointer2){
 newX2 = i.clientX - lad
 newY2 = i.clientY - cim
- let Newxa = newX - posx 
-      let Newxa2 =newX2 -pos2x   
-     let Newya = posy - newY
-      let Newya2 = posy2 - newY2 
+ let Newxa = posx - newX
+      let Newxa2 =pos2x - newX2 
+     let Newya = newY- posy
+      let Newya2 =newY2 - posy2  
       let point1 = Newxa + Newxa2
       let point2= Newya + Newya2
-       dif = ( (posx - (posxA/2)) + point1 )/borda.width;
+       dif = ( (posx - (posxA/2)) - point1 )/borda.width;
        dif2 = ( (posy - (posyA/2)) -point2 )/ borda.height;
 
      }
