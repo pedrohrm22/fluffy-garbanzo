@@ -760,12 +760,12 @@ newX2 = i.clientX - lad
 newY2 = i.clientY - cim
  let Newxa = posx - newX
       let Newxa2 =newX2 - pos2x 
-     let Newya = newY- posy
+     let Newya =posy- newY
       let Newya2 =newY2 - posy2  
       let point1 = Newxa2 - Newxa
-      let point2= Newya - Newya2
-       dif = ( (posx - (posxA/2)) -point1 )/borda.width;
-       dif2 = ( (posy - (posyA/2)) +point2 )/ borda.height;
+      let point2= Newya2 - Newya
+       dif = ( (posx - (posxA/2)) - point1 )/borda.width;
+       dif2 = ( (posy - (posyA/2)) - point2 )/ borda.height;
 
      }
     
