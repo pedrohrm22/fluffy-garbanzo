@@ -764,7 +764,7 @@ newY2 = i.clientY - cim
       let Newya2 =newY2 - posy2  
       let point1 = Newxa2 - Newxa
       let point2= Newya2 - Newya
-       dif = ( (posx - (posxA/2)) - point1 )/borda.width;
+       dif = ( (posx - (posxA/2)) + point1 )/borda.width;
        dif2 = ( (posy - (posyA/2)) - point2 )/ borda.height;
 
      }
@@ -776,8 +776,8 @@ let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- new
 newitem.style.height=  alt + ratio*( Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - ratio*H  + "px"
 newitem.style.width= larg + (Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - H  + "px"
    newitem.style.margin="0" 
-newitem.style.left = lad +dif*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2))))- dif*H + "px"
-newitem.style.top = cim +ratio*dif2*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - ratio*dif2*H + "px"
+newitem.style.left = lad -dif*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) +dif*H + "px"
+newitem.style.top = cim -ratio*dif2*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) + ratio*dif2*H + "px"
  /*newBorda = newitem.getBoundingClientRect()*/
 
 
