@@ -764,10 +764,10 @@ newY2 = i.clientY - cim
       
 
      }
-      let Newxa = posx - newX
-      let Newxa2 = Math.abs( pos2x - newX2 )
-     let Newya =posy- newY
-      let Newya2 =Math.abs( posy2 -newY2 )  
+      let Newxa =  newX - newX2
+     
+     let Newya = newY - newY2
+     
    /* if(Newxa<0){
       Newxa = 0
     }
@@ -785,11 +785,11 @@ let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- new
 
  if(pointer !== null && pointer2 !== null && H<H2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
   zoom = true
-newitem.style.height=  alt + ratio*4*( Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 4*ratio*H  + "px"
-newitem.style.width= larg + 4*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) - 4*H  + "px"
+newitem.style.height=  alt + Math.abs(ratio*4*Newya - 4*ratio*posyA)  + "px"
+newitem.style.width= larg + Math.abs(4*Newxa - 4*posxA)  + "px"
    newitem.style.margin="0" 
-newitem.style.left = lad -dif*4*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2))))-Newxa - Newxa2 +4*dif*H + "px"
-newitem.style.top = cim -ratio*dif2*4*(Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))) + 4*ratio*dif2*H + "px"
+newitem.style.left = lad -Math.abs(dif*4*Newxa +4*dif*posxA) + "px"
+newitem.style.top = cim -Math.abs(ratio*dif2*4*Newya + 4*ratio*dif2*posyA)+ "px"
  /*newBorda = newitem.getBoundingClientRect()*/
 
 
