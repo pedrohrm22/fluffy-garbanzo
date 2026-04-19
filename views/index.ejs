@@ -764,10 +764,10 @@ newY2 = i.clientY - cim
       
 
      }
-      let Newxa = Math.abs( posx - newX )
-     let Newxa2 = Math.abs( pos2x - newX2 )
-     let Newya = Math.abs( posy -  newY )
-     let Newya2 = Math.abs(posy2 -  newY2 )
+      let Newxa =  posx - newX 
+     let Newxa2 = pos2x - newX2 
+     let Newya =  posy -  newY
+     let Newya2 = posy2 -  newY2 
    /* if(Newxa<0){
       Newxa = 0
     }
@@ -788,8 +788,12 @@ let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- new
 newitem.style.height=  alt + Math.abs(ratio*4*H2) - 4*ratio*H  + "px"
 newitem.style.width= larg + Math.abs(4*H2)- 4*H  + "px"
    newitem.style.margin="0" 
-newitem.style.left = lad -Math.abs(dif*4*H2) + Newxa - Newxa2 +4*dif*H + "px"
-newitem.style.top = cim -Math.abs(ratio*dif2*4*H2) + Newya-Newya2 + 4*ratio*dif2*H+ "px"
+if(Math.abs(dif*4*H2) + Newxa - Newxa2 +4*dif*H > 0) {
+   newitem.style.left = lad -Math.abs(dif*4*H2) - Newxa - Newxa2 +4*dif*H + "px"
+}
+if(Math.abs(ratio*dif2*4*H2) + Newya-Newya2 + 4*ratio*dif2*H){
+newitem.style.top = cim -Math.abs(ratio*dif2*4*H2) - Newya-Newya2 + 4*ratio*dif2*H+ "px"
+}
  /*newBorda = newitem.getBoundingClientRect()*/
 
 
