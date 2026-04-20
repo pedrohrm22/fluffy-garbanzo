@@ -794,10 +794,10 @@ let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- new
  if(pointer !== null && pointer2 !== null && H<H2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
   zoom = true
 if( Math.abs(ratio*4*H2)  - 4*ratio*H >0){
-  newitem.style.height=  alt + Math.abs(ratio*4*H2)  - 4*ratio*H  + "px"
+  newitem.style.height=  alt + Math.abs(ratio*4*H2)-point2  - 4*ratio*H  + "px"
 }
 if(  Math.abs(4*H2)- 4*H >0){
-newitem.style.width= larg + Math.abs(4*H2)- 4*H  + "px"
+newitem.style.width= larg + Math.abs(4*H2)-point- 4*H  + "px"
 }
    newitem.style.margin="0" 
 if(Math.abs((dif)*4*H2) - point+4*(dif)*H>0){
