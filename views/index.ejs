@@ -770,7 +770,7 @@ newY2 = i.clientY - cim
      let Newxa2 = pos2x - newX2 
      let Newya =  posy -  newY
      let Newya2 = posy2 -  newY2 
-     let point = Newxa2 +Newxa
+     let point = Newxa +Newxa2
      let point2 = Newya+Newya2
    
    
@@ -788,20 +788,21 @@ newY2 = i.clientY - cim
     }
       */
 let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))
-  dif3 =  point*(point/(larg + Math.abs(4*H2)- 4*H)) ;
-       dif4 =  point2*(point2/ (alt + Math.abs(ratio*4*H2)  - 4*ratio*H));
+  dif3 =  point/(larg + Math.abs(4*H2)- 4*H) ;
+       dif4 =  point2/ (alt + Math.abs(ratio*4*H2)  - 4*ratio*H);
 
  if(pointer !== null && pointer2 !== null && H<H2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
   zoom = true
-newitem.style.height=  alt + Math.abs(ratio*4*H2) -2*dif4 - 4*ratio*H  + "px"
-newitem.style.width= larg + Math.abs(4*H2)-2*dif3- 4*H  + "px"
+newitem.style.height=  alt + Math.abs(ratio*4*H2)  - 4*ratio*H  + "px"
+newitem.style.width= larg + Math.abs(4*H2)- 4*H  + "px"
    newitem.style.margin="0" 
-if(Math.abs(dif*4*H2)-2*dif3  +4*dif*H>0){
-   newitem.style.left = lad -Math.abs(dif*4*H2)-2*dif3  +4*dif*H + "px"
-}
 
-if(Math.abs(ratio*dif2*4*H2) +2*dif4 + 4*ratio*dif2*H>0){
-newitem.style.top = cim -Math.abs(ratio*dif2*4*H2) -2*dif4 + 4*ratio*dif2*H+ "px"}
+   newitem.style.left = lad -(dif-dif3)*(Math.abs(dif*4*H2) +4*dif*H) + "px"
+
+
+
+newitem.style.top = cim -(dif2-dif4)*(Math.abs(ratio*dif2*4*H2) + 4*ratio*dif2*H)+ "px"
+
 
  /*newBorda = newitem.getBoundingClientRect()*/
 
