@@ -786,7 +786,7 @@ newY2 = i.clientY - cim
     }
       */
 let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))
-  dif = ( (posx - (posxA/2)) - point1)/(larg + Math.abs(4*H2)- 4*H) ;
+  dif = ( (posx - (posxA/2)) - point)/(larg + Math.abs(4*H2)- 4*H) ;
        dif2 = ( (posy - (posyA/2)) - point2)/ (alt + Math.abs(ratio*4*H2)  - 4*ratio*H);
 
  if(pointer !== null && pointer2 !== null && H<H2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
