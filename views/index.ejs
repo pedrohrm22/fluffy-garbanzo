@@ -797,11 +797,11 @@ if( Math.abs(ratio*4*H2)  - 4*ratio*H >0){
   newitem.style.height=  alt + Math.abs(ratio*4*H2)+point2+point- 4*ratio*H  + "px"
 }
 if(  Math.abs(4*H2)- 4*H >0){
-newitem.style.width= larg + Math.abs(4*H2)+point+point2-4*H  + "px"
+newitem.style.width= larg + Math.abs(4*H2)-point-point2-4*H  + "px"
 }
    newitem.style.margin="0" 
 if(Math.abs((dif)*4*H2) - point+4*(dif)*H>0){
-   newitem.style.left = lad -Math.abs((dif)*4*H2) +4*(dif)*H-point2 -point+ "px"
+   newitem.style.left = lad -Math.abs((dif)*4*H2) +4*(dif)*H+point2 +point+ "px"
 }
 
 if(Math.abs(ratio*(dif2)*4*H2) - point2-point + 4*ratio*(dif2*H)>0){
