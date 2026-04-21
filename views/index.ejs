@@ -745,8 +745,7 @@ let countUp
      let newX2
      let newY2
      let zoom = false
-     let dif3
-     let dif4
+    
      document.addEventListener("pointermove", function(i) {
        Qm = (i.clientX - posx) - esq2 
        
@@ -788,8 +787,7 @@ newY2 = i.clientY - cim
     }
       */
 let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))
-  dif3 =  point/(larg + Math.abs(4*H2)- 4*H) ;
-       dif4 =  point2/ (alt + Math.abs(ratio*4*H2)  - 4*ratio*H);
+  
 
  if(pointer !== null && pointer2 !== null && H<H2+point+point2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
   zoom = true
@@ -814,7 +812,7 @@ newitem.style.top = cim-point2 -point -Math.abs(ratio*(dif2)*4*H2) + 4*ratio*(di
 
 
        } else  if(Math.abs(gap - i.clientX) > 10 && zoom === false){ 
-        if(press===true) {
+       /* if(press===true) {
            newitem.style.margin="0"
 
       
@@ -911,8 +909,9 @@ newitem.style.top = cim-point2 -point -Math.abs(ratio*(dif2)*4*H2) + 4*ratio*(di
        
    
          
-  
+  */
           }
+          
           
         })
  
