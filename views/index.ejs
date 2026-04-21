@@ -789,7 +789,7 @@ newY2 = i.clientY - cim
 let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))
   
 
- if(pointer !== null && pointer2 !== null && H<H2+point+point2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
+ if(pointer !== null && pointer2 !== null && H<H2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
   zoom = true
 
   newitem.style.height=  alt + ratio*4*H2- 4*ratio*H  + "px"
