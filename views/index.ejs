@@ -791,7 +791,7 @@ let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- new
   dif3 =  point/(larg + Math.abs(4*H2)- 4*H) ;
        dif4 =  point2/ (alt + Math.abs(ratio*4*H2)  - 4*ratio*H);
 
- if(pointer !== null && pointer2 !== null && H<H2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
+ if(pointer !== null && pointer2 !== null && H<H2+point+point2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
   zoom = true
 if( Math.abs(ratio*4*H2)  - 4*ratio*H >0){
   newitem.style.height=  alt + Math.abs(ratio*4*H2)+point2+point- 4*ratio*H  + "px"
