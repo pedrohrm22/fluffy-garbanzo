@@ -788,29 +788,41 @@ newY2 = i.clientY - cim
       */
 let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))
   
-
- if(pointer !== null && pointer2 !== null && H<H2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
+let H3 =  Math.sqrt((Newxa * Newxa) + (Newya*Newya))
+let H4 = Math.sqrt((Newxa2 * Newxa2) + (Newya2*Newya2))
+ let dif3 = Math.abs(H4-H3)
+ if(pointer !== null && pointer2 !== null && H<H2 + dif3 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
   zoom = true
 
-  newitem.style.height=  alt + ratio*4*H2- 4*ratio*H  + "px"
+  newitem.style.height=  alt + ratio*4*H2+dif3- 4*ratio*H  + "px"
 
 
-newitem.style.width= larg + 4*H2-4*H  + "px"
+newitem.style.width= larg + 4*H2+dif3-4*H  + "px"
 
    /*newitem.style.margin="0" */
 
-   newitem.style.left = lad-dif*4*H2 +4*dif*H+ "px"
+   newitem.style.left = lad-dif*4*H2-dif3 +4*dif*H+ "px"
 
 
 
 
-newitem.style.top = cim-ratio*(dif2)*4*H2 + 4*ratio*(dif2*H)+ "px"
+newitem.style.top = cim-ratio*(dif2)*4*H2-dif3 + 4*ratio*(dif2*H)+ "px"
 
+/*
+esp0 = 0
+esp = i.clientX-lad- posx
+t = Date.now()
+if(esp- esp0>1){
+  t2 = Date.now()
+ v = (esp-esp0)/(t2-t1)
+ t = t2
+ esp0=esp
+ if(v<1/1000){
 
+ }
+}
 
-
-
-
+*/
        } else  if(Math.abs(gap - i.clientX) > 10 && zoom === false){ 
        if(press===true) {
            newitem.style.margin="0"
