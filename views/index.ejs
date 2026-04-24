@@ -317,8 +317,10 @@ const img4 = document.querySelectorAll(".img4")
      let posyA 
      let H 
      let alt
-     let dif
-     let dif2
+      let difx 
+      let difx2
+      let dify 
+      let dify2 
     let gap
     let ratio
           if(window.matchMedia("(max-width: 500px)").matches){
@@ -412,8 +414,10 @@ if(disp === "cell"){
       H = Math.sqrt((posxA*posxA) + (posyA*posyA))
     
        
-        dif = ( (posx - (posxA/2)))/borda.width;
-       dif2 = ( (posy - (posyA/2)))/ borda.height;
+        difx = posx/borda.width;
+       difx2 =  pos2x / borda.height;
+       dify = posy/borda.width;
+       dify2 =  posy2 / borda.height;
    
          }
            
@@ -769,7 +773,7 @@ newY2 = i.clientY - cim
      let Newxa2 = pos2x - newX2 
      let Newya =  posy -  newY
      let Newya2 = posy2 -  newY2 
-     let point = Newxa +Newxa2
+     let point = Newxa+Newxa2
      let point2 = Newya+Newya2
    
    
@@ -790,23 +794,23 @@ let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- new
   
 let H3 =  Math.sqrt((Newxa * Newxa) + (Newya*Newya))
 let H4 = Math.sqrt((Newxa2 * Newxa2) + (Newya2*Newya2))
- let dif3 = Math.abs(H3-H4)**2/ Math.sqrt((alt**2) + (larg**2))
+
  if(pointer !== null && pointer2 !== null && H<H2 + dif3 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
   zoom = true
 
-  newitem.style.height=  alt + ratio*4*H2+ratio*4*dif3- 4*ratio*H  + "px"
+  newitem.style.height=  alt +ratio*4*H2- 4*ratio*H  + "px"
 
 
-newitem.style.width= larg + 4*H2+ 4*dif3-4*H  + "px"
+newitem.style.width= larg + 4*H2 -4*H  + "px"
 
    /*newitem.style.margin="0" */
 
-   newitem.style.left = lad-dif*4*H2-4*dif3 +4*dif*H+ "px"
+   newitem.style.left = lad-difx*2*H2 +2*difx*H-difx2*2*H2 +2*difx2*H+ "px"
 
 
 
 
-newitem.style.top = cim-ratio*(dif2)*4*H2-ratio*4*dif3 + 4*ratio*(dif2*H)+ "px"
+newitem.style.top = cim-ratio*(dify)*4*H2 + 4*ratio*(dify*H)-ratio*(dify2)*2*H2 + 2*ratio*(dify2*H)+ "px"
 
 /*
 esp0 = 0
