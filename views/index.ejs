@@ -793,10 +793,10 @@ newY2 = i.clientY - cim
 let H2 = Math.sqrt( ((newX - newX2)* (newX - newX2)) + ((newY- newY2)*(newY- newY2)))
   
 
-difx = (posx+(posx-newX)*4)/(larg + 4*H2 - 4*H);
-       difx2 = (pos2x+(pos2x-newX2)*4)  /(larg + 4*H2 - 4*H);
-       dify =  (posy+(posy-newY)*4)/( alt +ratio*4*H2 - 4*H);
-       dify2 =  (posy2+(posy2-newY2)*4)/( alt +ratio*4*H2 - 4*H) ;
+difx = newX/(larg + H2 - H);
+       difx2 = newX2  /(larg +H2 - H);
+       dify =  newY/( alt +H2 - H);
+       dify2 =  newY2/( alt +H2 - H) ;
 
  if(pointer !== null && pointer2 !== null && H<H2 && (Math.abs(gap - i.clientX) <= 10 || zoom===true)){
   zoom = true
