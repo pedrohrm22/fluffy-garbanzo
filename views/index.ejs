@@ -414,10 +414,10 @@ if(disp === "cell"){
       H = Math.sqrt((posxA*posxA) + (posyA*posyA))
     
        
-        difx = posx/borda.width;
-       difx2 =  pos2x / borda.width;
-       dify = posy/borda.height;
-       dify2 =  posy2 / borda.height;
+        difx = (posx - (posxA/2))/borda.width;
+      
+       dify = (posy - (posyA/2))/borda.height;
+      
    
          }
            
@@ -805,12 +805,12 @@ newitem.style.width= larg + 4*H2 - 4*H + "px"
 
    /*newitem.style.margin="0" */
 
-   newitem.style.left = lad-2*difx*H2 -2*difx2*H2 +2*difx*H+2*difx2*H/*2*difx2*H*/ + "px"
+   newitem.style.left = lad-2*difx*H2 +2*difx*H/*2*difx2*H*/ + "px"
 
 
 
 
-newitem.style.top = cim-2*ratio*(dify)*H2 -2*ratio*(dify2)*H2 +2*dify*ratio*H+2*dify2*ratio*H   /*2*ratio*(dify2*H)*/+ "px"
+newitem.style.top = cim-2*ratio*(dify)*H2 +2*dify*ratio*H /*2*ratio*(dify2*H)*/+ "px"
 
 /*
 esp0 = 0
